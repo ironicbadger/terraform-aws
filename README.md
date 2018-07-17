@@ -28,7 +28,24 @@ Note if you have performed `aws configure` you have most likely already got a pl
 
 Once created if you'd like run Ansible against these hosts (separately from TF) then you can use the included `ec2.py` script in the `aws-ansible-dynamic-inventory` folder.
 
-    ansible-console -u ec2-user -b -i aws-ansible-dynamic-inventory/ --limit tag_role_<example>
+    [alex@neo terraform-aws]$ ansible-console -u ec2-user -i aws-ansible-dynamic-inventory/ -b
+        Welcome to the ansible console.
+        Type help or ? to list commands.
+
+        ec2-user@all (3)[f:5]# ping
+        34.253.216.159 | SUCCESS => {
+            "changed": false,
+            "ping": "pong"
+        }
+        34.250.188.249 | SUCCESS => {
+            "changed": false,
+            "ping": "pong"
+        }
+        34.241.194.55 | SUCCESS => {
+            "changed": false,
+            "ping": "pong"
+        }
+
 
 If you'd like to avoid specifying a key pair everytime you run Ansible, the following snippet in your `~/.ssh/config` will help.
 
