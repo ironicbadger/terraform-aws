@@ -16,7 +16,7 @@ data "aws_ami" "rhel7_ami" {
         values = ["hvm"]
     }
 
-    owners = ["309956199498"]
+    owners = ["309956199498"] # red hat
 }
 
 resource "aws_instance" "rhel7" {
